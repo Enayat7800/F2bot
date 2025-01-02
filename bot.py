@@ -1,15 +1,20 @@
 from telethon import TelegramClient, events
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 # Telegram API credentials
-api_id = 'YOUR_API_ID'  # Telegram se API ID le aao
-api_hash = 'YOUR_API_HASH'  # Telegram se API Hash le aao
-bot_token = 'YOUR_BOT_TOKEN'  # BotFather se bot token le aao
+api_id = os.getenv('API_ID')  # Telegram se API ID le aao
+api_hash = os.getenv('API_HASH')  # Telegram se API Hash le aao
+bot_token = os.getenv('BOT_TOKEN')  # BotFather se bot token le aao
+
+# Your channel ID
+your_channel_id = None
 
 # List to store multiple channels
 source_channels = []
-
-# Variable to store your channel ID
-your_channel_id = None
 
 # Client setup
 client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
